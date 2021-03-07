@@ -36,7 +36,7 @@
    (reset! global-debug {:debug-data any_name :method 'foo})  ;; preferred
    {:status  200
    :headers {"Content-Type" "text/html"}
-   :body    (str "Hello Clojure!! " (add) " Yes, this demo was very helpful !!")})
+   :body    (str "Hello Clojure!! " (add) " Yes, this demo was very helpful !! So this is working?")})
 
 (defn foo-improved [any_name] ;; fix this by handling an argument
   (let [request_payload any_name]
@@ -47,7 +47,7 @@
     (reset! global-debug {:debug-data any_name :method 'foo-improved})  ;; preferred
     {:status  200
      :headers {"Content-Type" "text/html"}
-     :body    request_payload}))
+     :body    (str (get-in request_payload [:uri]))}))
 
 (defn foo-lazy [_]
   (str (even-numbs whole-number)))
